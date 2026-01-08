@@ -74,6 +74,10 @@ export const Container = styled.header<OnTopProps>`
    display: none;
   }
 
+  .menu {
+    display: none;
+  }
+
   @media screen and (max-width: 490px) {
     height: ${(props) => (props.$OnTop ? "8rem" : "5rem")};
     padding: 1rem 2rem;
@@ -82,7 +86,7 @@ export const Container = styled.header<OnTopProps>`
       display: none;
     }
 
-    button {
+    a {
       display: none;
    
     }
@@ -91,20 +95,22 @@ export const Container = styled.header<OnTopProps>`
      height: 5rem;
     }
 
-    svg {
+    .menuBtn {
       display: flex;
     }
+
 
     .menu {
       height: 85vh;
       width: 100%;
-      
+
       background: rgba(0, 0, 0, 0.4); 
       inset: 0;
       backdrop-filter: blur(8px); 
       -webkit-backdrop-filter: blur(8px); 
       
-      flex-direction: column;      
+      flex-direction: column; 
+      justify-content: space-between;
       align-items: center;
       display: flex;
       
@@ -113,49 +119,123 @@ export const Container = styled.header<OnTopProps>`
       left: 0;
       top: 0;
 
-      border-radius: 0 0 2rem 2rem;
       border-bottom: 1px solid #ff000052;
+      border-radius: 0 0 2rem 2rem;
+      padding: 4rem 2rem 3rem 2rem;
+
+      transition: .5s ease-in-out;
+
+      img {
+       height: 9rem;
+       width: auto;
+      }
+
+      .topicsM {
+        height: fit-content;
+        width: fit-content;
+
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        gap: 3rem;
+
+  
+
+        a {
+          display: block;
+        }
+
+        span {
+          font-family: 'Syne', sans-serif;
+          font-size: 1.6rem;
+          color: #C1C1C1;
+
+          user-select: none;
+        }
+        .focus {
+         color: #ff0000;
+        }
+      }
+
+      .whatBTN {
+       height: 5rem;
+       width: 100%;
+
+       background-color: #232323;
+       border-radius: 1.6rem;
+
+       justify-content: center;
+       align-items: center;
+       display: flex;
+
+       font-family: 'Syne', sans-serif;
+       font-size: 1.6rem;
+       color: #fff;
+
+       transition: .3s ease-in-out;
+
+       &:hover {
+        filter: brightness(60%);
+        cursor: pointer;
+       }
+      }
+    }
+
+    .closed {
+      top: -100%;
     }
   }
 `;
 
 export function Header({ focused }: FocusProps) {
-  const [onTop, setOnTop] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [onTop, setOnTop] = useState(true);
+
+  const divRef = useRef<HTMLDivElement | null>(null);
   const startY = useRef<number | null>(null);
-
-  useEffect(() => {
-   if (menuOpen) {
-    document.body.style.overflow = "hidden";
-    document.body.style.touchAction = "none";
-   } else {
-    document.body.style.overflow = "";
-    document.body.style.touchAction = "";
-   }
-
-   return () => {
-    document.body.style.overflow = "";
-    document.body.style.touchAction = "";
-   };
-  }, [menuOpen]);
+  const currentY = useRef<number | null>(null);
 
   function handleTouchStart(e: React.TouchEvent<HTMLDivElement>) {
-    startY.current = e.touches[0].clientY;
+  startY.current = e.touches[0].clientY;
   };
 
-  function handleTouchEnd(e: React.TouchEvent<HTMLDivElement>) {
-    if (startY.current === null) return;
+  function handleTouchMove(e: React.TouchEvent<HTMLDivElement>) {
+    currentY.current = e.touches[0].clientY;
+  };
 
-    const endY = e.changedTouches[0].clientY;
-    const distance = startY.current - endY;
+  function handleTouchEnd() {
+   if (startY.current === null || currentY.current === null) return;
 
-    if (distance > 80) {
-      console.log("Swipe para cima detectado");
-      setMenuOpen(false)
+   const distance = startY.current - currentY.current;
+
+   // 🔥 swipe para cima (threshold)
+   if (distance > 60) {
+     setMenuOpen(false);
+     document.body.style.overflow = "auto";
+   }
+
+   startY.current = null;
+   currentY.current = null;
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      if (!divRef.current) return;
+
+      if (!divRef.current.contains(event.target as Node)) {
+        setMenuOpen(false)
+        document.body.style.overflow = "auto";
+      }
     }
 
-    startY.current = null;
-  };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setOnTop(window.scrollY === 0);
@@ -163,9 +243,11 @@ export function Header({ focused }: FocusProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
   return (
     <Container $OnTop={onTop}>
       <img src={Logo} alt="Logo MA" />
+      <HiMenu className="menuBtn" onClick={()=> {setMenuOpen(true); document.body.style.overflow = "hidden";}}  size={40} color="#ff0000"/>
 
       <div className="topics">
         <a href="#home">
@@ -194,18 +276,42 @@ export function Header({ focused }: FocusProps) {
       <button>Entre em contato via Whatsapp</button>
       </a>
 
-      <HiMenu onClick={()=> setMenuOpen(true)} size={40} color="#ff0000"/>
 
-      { menuOpen ? 
-       <div 
-        className="menu"       
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}>
+        <div 
+         ref={divRef} 
+         className={menuOpen ? 'menu' : 'menu closed'}
+         onTouchStart={handleTouchStart}
+         onTouchMove={handleTouchMove}
+         onTouchEnd={handleTouchEnd}
+        >
+         <img src={Logo} alt="" />
+         
+         <div className="topicsM">
+          <a href="#home" onClick={()=> {setMenuOpen(false); document.body.style.overflow = "auto";}}>
+           <span className={focused === "home" ? "focus" : ""}>Home</span>
+          </a>
+          <a href="#about" onClick={()=> {setMenuOpen(false); document.body.style.overflow = "auto";}}>
+            <span className={focused === "about" ? "focus" : ""}>Sobre Mim</span>
+          </a>
+          <a href="#projects" onClick={()=> {setMenuOpen(false); document.body.style.overflow = "auto";}}>
+            <span className={focused === "projects" ? "focus" : ""}>Projetos</span>
+          </a>
+          <a href="#depoiments" onClick={()=> {setMenuOpen(false); document.body.style.overflow = "auto";}}>
+            <span className={focused === "depoiments" ? "focus" : ""}>Depoimentos</span>
+          </a>
+          <a href="#faq" onClick={()=> {setMenuOpen(false); document.body.style.overflow = "auto";}}>
+            <span className={focused === "faq" ? "focus" : ""}>FAQ</span>
+          </a>
+          <a href="#contact" onClick={()=> {setMenuOpen(false); document.body.style.overflow = "auto";}}>
+            <span className={focused === "contact" ? "focus" : ""}>Contato</span>
+          </a>
+         </div>
 
-       </div> 
-      :
-       null
-      }
+         <div className="whatBTN">
+          WhatsApp
+         </div>
+        </div>
+      
     </Container>
   );
 }
