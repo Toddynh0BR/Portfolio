@@ -194,7 +194,7 @@ export function Header({ focused }: FocusProps) {
       <button>Entre em contato via Whatsapp</button>
       </a>
 
-      <HiMenu onClick={setMenuOpen(true)} size={40} color="#ff0000"/>
+      <HiMenu onClick={()=> setMenuOpen(true)} size={40} color="#ff0000"/>
 
       { menuOpen ? 
        <div 
