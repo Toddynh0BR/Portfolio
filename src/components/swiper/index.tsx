@@ -26,7 +26,7 @@ transition: .3s ease-in-out;
   }
 `
 
-export function SwiperDiv({ images }: { images: string[] }) {
+export function SwiperDiv({ images }: { images: Array<any> }) {
   return (
     <Swiper
       modules={[Autoplay]}             
@@ -50,12 +50,14 @@ export function SwiperDiv({ images }: { images: string[] }) {
       }}             
       style={{ padding: "20px 0" }}
     >
-      {images.map((img, index) => (
+      {images.map((item, index) => (
         <SwiperSlide key={index}>
+         <a href={item.link} target='_blank'>
           <Img
-            src={img}
+            src={item.img}
             alt={`Slide ${index}`}
           />
+         </a>
         </SwiperSlide>
       ))}
     </Swiper>

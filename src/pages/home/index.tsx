@@ -54,18 +54,54 @@ import { SlSocialLinkedin } from "react-icons/sl";
 
 export function Home() {
     const images = [
-     js,
-     ts,
-     reactjs,
-     html,
-     css,
-     reactnative,
-     nodejs,
-     git,
-     sqlite,
-     python,
-     electron,
-     vscode,
+     {
+      img: html,
+       link: 'https://github.com/topics/html'
+     },
+     {
+      img: css,
+      link: 'https://github.com/topics/css'
+     },
+     {
+      img: js,
+      link: 'https://github.com/topics/javascript'
+     },
+     {
+      img: ts,
+      link: 'https://github.com/topics/typescript'
+     },
+     {
+      img: python,
+      link: 'https://github.com/topics/python'
+     },
+     {
+      img: electron,
+      link: 'https://github.com/topics/electron'
+     },
+     {
+      img: reactnative,
+      link: 'https://github.com/topics/react-native'
+     },
+     {
+      img: reactjs,
+      link: 'https://github.com/topics/react'
+     },
+     {
+      img: nodejs,
+      link: 'https://github.com/topics/nodejs'
+     },
+     {
+      img: sqlite,
+      link: 'https://github.com/topics/sqlite'
+     },
+     {
+      img: git,
+      link: 'https://github.com/topics/git'
+     },
+     {
+      img: vscode,
+      link: 'https://github.com/topics/visual-studio-code'
+     },
     ];
     const projects = [
       {
