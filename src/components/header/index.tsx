@@ -184,6 +184,9 @@ export const Container = styled.header<OnTopProps>`
     .closed {
       top: -100%;
     }
+
+    position: fixed;
+    top: 0;
   }
 `;
 

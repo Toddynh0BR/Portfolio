@@ -15,6 +15,16 @@ export function SwiperTwo({ children }: { children: any }) {
         pauseOnMouseEnter: true
       }}
       loop
+      breakpoints={{
+        0: {
+          slidesPerView: 1, 
+          spaceBetween: 5
+        },
+        491: {
+          slidesPerView: 3, 
+          spaceBetween: 10
+        },
+      }}   
       style={{ width: "100%", padding: "0 5px"  }}
     >
       {children}

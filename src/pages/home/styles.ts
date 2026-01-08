@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
 height: 100vh;
 width: 100%;
@@ -185,7 +186,39 @@ z-index: -1;
  }
 }
 
+  @media screen and (max-width: 490px) {
+  height: 60vh;
+  .BLUR {
+   height: 80%;
+   width: 56%;
+   top: -5rem;
+  }
 
+  .title {
+    h1 {
+      font-size: 3.7rem;
+    }
+    p{
+      font-size: 1.6rem;
+    }
+
+    .buttons {
+     .ProjectBtn  {
+      height: 4.5rem;
+      button {
+         font-size: 1.6rem;
+      } 
+     
+     }
+      .AboutBtn {
+        height: 4.5rem;
+         font-size: 1.6rem;
+      }
+    }
+   
+   
+  }
+}
 `
 
 export const SwiperContainer = styled.div`
@@ -235,6 +268,17 @@ background: linear-gradient(90deg, rgba(0, 0, 0, 1) 63%, rgba(237, 221, 83, 0) 1
 background: #000000;
 background: linear-gradient(270deg, rgba(0, 0, 0, 1) 63%, rgba(237, 221, 83, 0) 100%);
 }
+
+  @media screen and (max-width: 490px) {
+    h2 {
+      text-align: center;
+      margin-left: 0;
+      font-size: 1.6rem;
+    }
+   .leftGradiant, .rightGradiant {
+    width: 5rem;
+   }
+  }
 `
 
 export const About = styled.section`
@@ -345,18 +389,81 @@ grid-template-rows: 1fr 0.9fr;
  }
 }
 
-img {
+.Photo {
  height: 100%;
  width: 98%;
 
- overflow: hidden;
+ img {
+  height: 100%;
+  width: 100%;
+ 
  flex-shrink: 0;
  contain: content;
- 
+ }
+
+ span, p {
+  display: none;
+ }
+
+ overflow: hidden;
  margin-right: 0rem;
  margin-left: 1rem;
  border-radius: 2.4rem;
 }
+
+  @media screen and (max-width: 490px) {
+    height: fit-content;
+
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+
+    padding: 0 1rem;
+    border: none;
+
+    .right, .left {
+      display: none;
+    }
+
+    .Photo {
+     height: auto;
+     width: 100%;
+     margin: 0;
+
+     position: relative;
+
+     span {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 3;
+     display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      color: #ffffffff;
+      text-shadow: 2px 2px 5px #303030ff;
+     }
+    p {
+      position: absolute;
+      top: 3rem;
+      left: 1rem;
+      z-index: 3;
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      color: #ffffffff;
+      text-shadow: -1px -1px 5px #303030ff;
+     }
+    }
+    .Year, .Projects, .Certif {
+      span {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.6rem;
+      }
+    }
+  }
 `
 
 export const Projects = styled.section`
@@ -496,6 +603,15 @@ ul {
   }
  }
 }
+
+  @media screen and (max-width: 490px) {
+    margin-top: 0;
+    ul {
+      flex-direction: column;
+      align-items: center;
+      display: flex;
+    }
+  }
 `
 
 export const Depoiments = styled.section`
@@ -623,6 +739,22 @@ display: flex;
 .swiper {
  overflow: visible;
 }
+
+ @media screen and (max-width: 490px) {
+  height: fit-content;
+  margin: 0rem auto;
+  margin-bottom: 5rem;
+  .title {
+   flex-direction: column;
+   span {
+    font-size: 1.8rem;
+    text-align: center;
+    br {
+      display: none;
+    }
+   }
+  }
+ }
 `
 
 export const FAQ = styled.section`
@@ -705,6 +837,63 @@ h2 {
 
 
 }
+
+ @media screen and (max-width: 490px) {
+  min-height: 50vh;
+  height: fit-content;
+
+  h2 {
+    font-size: 3.2rem;
+    text-align: center;
+  }
+
+  .quest {
+    margin-bottom: 2rem;
+    .top {
+      height: 5rem;
+      span {
+        font-size: 1.6rem;
+      }
+
+      svg {
+        height: 2rem;
+      }
+    }
+    .text {
+      p {
+        font-size: 1.6rem;
+      }
+    }
+
+  }
+  .open {
+    .text {
+        height: 50rem;
+       
+    }
+  }
+
+  div:nth-child(3) {
+   .text {
+    max-height: 35rem;
+   }
+  }
+  div:nth-child(4) {
+   .text {
+    max-height: 45rem;
+   }
+  }
+  div:nth-child(5) {
+   .text {
+    max-height: 25rem;
+   }
+  }
+  div:nth-child(6) {
+   .text {
+    max-height: 40rem;
+   }
+  }
+ }
 `
 
 export const Contact = styled.section`
@@ -736,6 +925,19 @@ h1 {
   transform: scale(103%);
  }
 }
+
+ @media screen and (max-width: 490px) {
+  margin-top: 5rem;
+  gap: 1rem;
+
+  h3 {
+    font-size: 1.8rem;
+  }
+  h1 {
+   font-size: 5rem;
+   text-align: center;
+  }
+ }
 `
 
 export const Footer = styled.footer`
@@ -796,4 +998,31 @@ display: flex;
   }
  }
 }
+
+ @media screen and (max-width: 490px) {
+  padding-bottom: 3rem;
+
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  .licence {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    margin-bottom: 2rem;
+
+    p {
+      text-align: center;
+      font-size: 1.6rem;
+    }
+  }
+
+  .links {
+    justify-content: center;
+  }
+ }
 `

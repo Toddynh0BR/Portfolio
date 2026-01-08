@@ -442,6 +442,12 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
           <div className="left"></div>
           <div className="right"></div>
 
+          <div className="Photo">
+            <img src={ME} alt="" />
+            <span>Vamos desenvolver juntos!</span>
+            <p>Leve seu sistema e site a outro nível comigo.</p>
+          </div>
+
           <div className="Year">
            <h3>
             +<strong>3</strong> Anos
@@ -488,7 +494,7 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
             </p>
           </div>
 
-          <img content='' src={ME} className="Photo"/>
+          
       
          </S.About>
 

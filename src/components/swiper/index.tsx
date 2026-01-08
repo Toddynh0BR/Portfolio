@@ -20,6 +20,10 @@ transition: .3s ease-in-out;
  filter: drop-shadow(0px 0px 3px #ffffff60);
  cursor: pointer;
 }
+
+  @media screen and (max-width: 490px) {
+    height: 4.5rem;
+  }
 `
 
 export function SwiperDiv({ images }: { images: string[] }) {
@@ -33,7 +37,17 @@ export function SwiperDiv({ images }: { images: string[] }) {
         pauseOnMouseEnter: true,     
       }}
       spaceBetween={20}
-      slidesPerView={7}               
+      slidesPerView={7}  
+      breakpoints={{
+        0: {
+          slidesPerView: 4, // mobile até 490px
+          spaceBetween: 0
+        },
+        491: {
+          slidesPerView: 7, // acima de 490px
+          spaceBetween: 20
+        },
+      }}             
       style={{ padding: "20px 0" }}
     >
       {images.map((img, index) => (

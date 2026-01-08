@@ -45,6 +45,8 @@ a {
 }
 
 @media screen and (max-width: 490px){
-
+ body {
+  overflow-x: hidden;
+ }
 }
 `
