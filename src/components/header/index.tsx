@@ -79,7 +79,8 @@ export const Container = styled.header<OnTopProps>`
   }
 
   @media screen and (max-width: 490px) {
-    height: ${(props) => (props.$OnTop ? "8rem" : "5rem")};
+    height: ${(props) => (props.$OnTop ? "7rem" : "7rem")};
+    padding-top: ${(props) => (props.$OnTop ? "2rem" : "2rem")};
     padding: 1rem 2rem;
 
     .topics {

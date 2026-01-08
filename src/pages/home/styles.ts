@@ -8,7 +8,7 @@ width: 100%;
 position: relative;
 
 .loading {
-height: 100vh;
+height: 100%;
 width: 100%;
 
 position: fixed;
@@ -754,6 +754,8 @@ display: flex;
     }
    }
   }
+
+  overflow-x: hidden;
  }
 `
 

@@ -344,7 +344,7 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
       },
     ]);
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [focused, setFocused] = useState("home");
     const [count, setCount] = useState(0);
 
