@@ -42,11 +42,12 @@ body {
 
 a {
  text-decoration: none;
+   -webkit-tap-highlight-color: transparent;
 }
-
-@media screen and (max-width: 490px){
+a:active {
+  background-color: transparent;
+}
  body {
   overflow-x: hidden;
  }
-}
 `
