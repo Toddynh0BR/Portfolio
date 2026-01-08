@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef  } from "react";
 import styled from "styled-components";
+
+import { HiMenu } from "react-icons/hi";
 import Logo from "../../assets/MA.svg";
 
 interface OnTopProps {
@@ -67,10 +69,93 @@ export const Container = styled.header<OnTopProps>`
       filter: brightness(180%);
     }
   }
+
+  svg {
+   display: none;
+  }
+
+  @media screen and (max-width: 490px) {
+    height: ${(props) => (props.$OnTop ? "8rem" : "5rem")};
+    padding: 1rem 2rem;
+
+    .topics {
+      display: none;
+    }
+
+    button {
+      display: none;
+   
+    }
+
+    img {
+     height: 5rem;
+    }
+
+    svg {
+      display: flex;
+    }
+
+    .menu {
+      height: 85vh;
+      width: 100%;
+      
+      background: rgba(0, 0, 0, 0.4); 
+      inset: 0;
+      backdrop-filter: blur(8px); 
+      -webkit-backdrop-filter: blur(8px); 
+      
+      flex-direction: column;      
+      align-items: center;
+      display: flex;
+      
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+
+      border-radius: 0 0 2rem 2rem;
+      border-bottom: 1px solid #ff000052;
+    }
+  }
 `;
 
 export function Header({ focused }: FocusProps) {
   const [onTop, setOnTop] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const startY = useRef<number | null>(null);
+
+  useEffect(() => {
+   if (menuOpen) {
+    document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+   } else {
+    document.body.style.overflow = "";
+    document.body.style.touchAction = "";
+   }
+
+   return () => {
+    document.body.style.overflow = "";
+    document.body.style.touchAction = "";
+   };
+  }, [menuOpen]);
+
+  function handleTouchStart(e: React.TouchEvent<HTMLDivElement>) {
+    startY.current = e.touches[0].clientY;
+  };
+
+  function handleTouchEnd(e: React.TouchEvent<HTMLDivElement>) {
+    if (startY.current === null) return;
+
+    const endY = e.changedTouches[0].clientY;
+    const distance = startY.current - endY;
+
+    if (distance > 80) {
+      console.log("Swipe para cima detectado");
+      setMenuOpen(false)
+    }
+
+    startY.current = null;
+  };
 
   useEffect(() => {
     const handleScroll = () => setOnTop(window.scrollY === 0);
@@ -81,6 +166,7 @@ export function Header({ focused }: FocusProps) {
   return (
     <Container $OnTop={onTop}>
       <img src={Logo} alt="Logo MA" />
+
       <div className="topics">
         <a href="#home">
           <span className={focused === "home" ? "focus" : ""}>Home</span>
@@ -103,9 +189,23 @@ export function Header({ focused }: FocusProps) {
           <span className={focused === "contact" ? "focus" : ""}>Contato</span>
         </a>
       </div>
+
       <a target="_blank" href="https://api.whatsapp.com/send/?phone=5581999704376&text=Ol%C3%A1+Matheus%21+Vim+pelo+seu+portf%C3%B3lio+e+gostaria+de+mais+informa%C3%A7%C3%B5es.&type=phone_number&app_absent=0">
       <button>Entre em contato via Whatsapp</button>
       </a>
+
+      <HiMenu onClick={setMenuOpen(true)} size={40} color="#ff0000"/>
+
+      { menuOpen ? 
+       <div 
+        className="menu"       
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}>
+
+       </div> 
+      :
+       null
+      }
     </Container>
   );
 }

@@ -51,6 +51,8 @@ import { LuGithub } from "react-icons/lu";
 import { FaInstagram } from "react-icons/fa";
 import { SlSocialLinkedin } from "react-icons/sl";
 
+
+
 export function Home() {
     const images = [
      js,
@@ -342,9 +344,8 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
       },
     ]);
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [focused, setFocused] = useState("home");
-    const [counting, setCounting] = useState(false);
     const [count, setCount] = useState(0);
 
     function handleOpenFAQ(id: any){
@@ -377,7 +378,7 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setFocused(entry.target.id);
-            console.log(entry.target.id)
+          
             if (entry.target.id == 'about') CounterProject();
           }
         });
