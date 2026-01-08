@@ -5,6 +5,56 @@ height: 100vh;
 width: 100%;
 
 position: relative;
+
+.loading {
+height: 100vh;
+width: 100%;
+
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+
+background-color: #030303ff;
+
+justify-content: center;
+align-items: center;
+display: flex;
+
+transition: .8s ease-in-out;
+
+img {
+ height: 20rem;
+ width: 20rem;
+
+ animation: opaciting 1s ease-in-out forwards ;
+}
+
+@keyframes opaciting {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+}
+
+.loaded {
+ transition: .8s ease-in-out;
+ opacity: 0;
+
+ animation: noneA .8s ease-in-out forwards;
+
+ @keyframes noneA {
+  from {
+    display: flex;
+  }
+  to {
+    display: none;
+  }
+ }
+}
 `
 
 export const Home = styled.section`
@@ -134,6 +184,8 @@ z-index: -1;
   }
  }
 }
+
+
 `
 
 export const SwiperContainer = styled.div`

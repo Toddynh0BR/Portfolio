@@ -6,6 +6,8 @@ import { Header } from '../../components/header';
 import BLUR from '../../assets/Vector 6.png';
 import BG1 from '../../assets/Group 23.png';
 
+import logo from '../../assets/MA.svg';
+
 import { SwiperDiv } from '../../components/swiper';
 import { SwiperTwo } from '../../components/swiperTwo';
 
@@ -338,7 +340,12 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
         `,
         open: false
       },
-    ])
+    ]);
+
+    const [loading, setLoading] = useState(true);
+    const [focused, setFocused] = useState("home");
+    const [counting, setCounting] = useState(false);
+    const [count, setCount] = useState(0);
 
     function handleOpenFAQ(id: any){
       setQuests(prevItems =>
@@ -349,9 +356,21 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
       ))
     };
 
-      const [focused, setFocused] = useState("home");
+    function CounterProject(){
+     if (count >= 30) return;
 
-  useEffect(() => {
+     const interval = setInterval(() => {
+      setCount(prevState => {
+        if (prevState >= 30) {
+          clearInterval(interval);
+          return 30;
+        }
+        return prevState + 1;
+      });
+     }, 100);
+    };
+
+    useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -359,6 +378,7 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
           if (entry.isIntersecting) {
             setFocused(entry.target.id);
             console.log(entry.target.id)
+            if (entry.target.id == 'about') CounterProject();
           }
         });
       },
@@ -368,11 +388,22 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
     sections.forEach((section) => observer.observe(section));
 
     return () => sections.forEach((section) => observer.unobserve(section));
-  }, []);
+    }, []);
+ 
+    useEffect(()=> {
+      setTimeout(()=> {
+       setLoading(false)
+      }, 2500)
+    }, []);
 
+
+ 
      return(
         <S.Container>
          <Header focused={focused} />
+         <div className={loading ? 'loading' : 'loading loaded'}>
+          <img src={logo} alt="" />
+         </div>
 
          <S.Home id='home'>
           <img src={BG1} alt="" className='BG1'/>
@@ -427,7 +458,7 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
 
           <div className="Projects">
             <h3>
-             +<strong>30</strong>
+             +<strong>{count}</strong>
             </h3>
             <span>
              Projetos
