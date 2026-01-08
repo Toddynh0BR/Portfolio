@@ -187,7 +187,7 @@ z-index: -1;
 }
 
   @media screen and (max-width: 490px) {
-  height: 60vh;
+  height: 70vh;
   .BLUR {
    height: 80%;
    width: 56%;

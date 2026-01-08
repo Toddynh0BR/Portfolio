@@ -311,9 +311,14 @@ export function Header({ focused }: FocusProps) {
           </a>
          </div>
 
-         <div className="whatBTN">
-          WhatsApp
-         </div>
+         <a 
+          target="_blank" 
+          href="https://api.whatsapp.com/send/?phone=5581999704376&text=Ol%C3%A1+Matheus%21+Vim+pelo+seu+portf%C3%B3lio+e+gostaria+de+mais+informa%C3%A7%C3%B5es.&type=phone_number&app_absent=0">
+          <div className="whatBTN">
+           WhatsApp
+          </div>
+          </a>
+        
         </div>
       
     </Container>

@@ -344,8 +344,8 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
       },
     ]);
 
-    const [loading, setLoading] = useState(true);
     const [focused, setFocused] = useState("home");
+    const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(0);
 
     function handleOpenFAQ(id: any){
@@ -383,7 +383,7 @@ Cada projeto reflete meu foco em códigos limpos, escaláveis e soluções funci
           }
         });
       },
-      { threshold: 0 } // 60% da seção visível
+      { threshold: 0 } 
     );
 
     sections.forEach((section) => observer.observe(section));
