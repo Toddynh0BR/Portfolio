@@ -289,7 +289,7 @@ export function Home() {
       photo: 'https://media.licdn.com/dms/image/v2/D4D03AQGLqThqnrT5nQ/profile-displayphoto-shrink_400_400/B4DZnzDtEBIEAg-/0/1760719459097?e=1769040000&v=beta&t=sCcViIctG_R0zLphjWmuATjlHfmHYL6_bt8yjXXnmdk',
       name: 'Camila Gomes',
       work: 'CEO na Cami design®',
-      text: 'Trabalhar com ele foi uma experiência muito tranquila. Sempre demonstrou domínio técnico, atenção aos detalhes e preocupação em entregar algo que realmente fizesse sentido para o meu projeto. O resultado superou minhas expectativas e, sem dúvida, voltaria a contratar.',
+      text: 'Trabalhar com ele foi uma experiência muito tranquila. Sempre demonstrou domínio técnico, atenção aos detalhes e preocupação em entregar algo que realmente fizesse sentido para o meu projeto.',
       stars: 4,
       link: 'https://www.linkedin.com/in/camidesign/'
      },
