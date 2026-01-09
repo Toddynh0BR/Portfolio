@@ -26,14 +26,22 @@ import vscode from '../../assets/vscode.svg';
 
 import ME from '../../assets/me.jpeg';
 
+import MyBlue from '../../assets/MyBlue.png';
+import BlueErp from '../../assets/BlueErp.png';
 import TodoApp from '../../assets/TodoApp.png';
+import BluePay from '../../assets/BluePay.png';
+import BlueLite from '../../assets/BlueLite.png';
 import MHImports from '../../assets/MHImports.png';
 import FocusTimer from '../../assets/FocusTimer.png';
+import MyPortfolio from '../../assets/MyPortfolio.png';
+import PokemonGeek from '../../assets/PokemonGeek.png';
 import RocketNotes from '../../assets/RocketNotes.png';
 import RocketMovies from '../../assets/RocketMovies.png';
 import FoodExplorer from '../../assets/FoodExplorer.png';
+import CoffeDelivery from '../../assets/CoffeDelivery.png';
 import AgeCalculator from '../../assets/AgeCalculator.png';
 import CalculatorAPP from '../../assets/Calculator App.png';
+import BlueInnovation from '../../assets/BlueInnovation.png';
 import MHImportsMobal from '../../assets/MHImportsMobal.png';
 import TypeWeatherMobal from '../../assets/TypeWeatherMobal.png';
 import InteractiveCard from '../../assets/InteractiveCardDetail.png';
@@ -102,7 +110,7 @@ export function Home() {
       img: vscode,
       link: 'https://github.com/topics/visual-studio-code'
      },
-    ];
+    ];//18
     const projects = [
       {
         id: 1,
@@ -171,6 +179,41 @@ export function Home() {
         ],
       },
       {
+        id: 15,
+        name: 'BluePay',
+        image: BluePay,
+        description: `
+        BluePay é um sistema completo feito para a empresa <a href='https://www.linkedin.com/company/blue-innovation%C2%A0group/' target=''_blank>
+        BlueInnovation Group</a>, trata-se de uma plataforma de pagamento conectada a api do asaas para geração de faturas e etc e a um webhook do bitrix que faz
+        a requisição de geração de faturas automaticamente, por ser um produto o back end é privado.
+        `,
+        year: 2025,
+        link: 'https://github.com/Toddynh0BR/BluePay',
+        tags: [
+          'ReactJS',
+          'NodeJs',
+          'JavaScript',
+          'PostGres',
+          'Payment'
+        ],
+      },
+      {
+        id: 16,
+        name: 'Pokemon Geek',
+        image: PokemonGeek,
+        description: `
+        Pokemon geek é um site divertido de pokemon conectado a api PokeApi, onde o usuário pode buscar por qualquer pokemon digitando o nome ou número dele,
+        e ver suas diferentes formas. Alem de contar com diversas animações e sons divertidos.
+        `,
+        year: 2025,
+        link: 'https://github.com/Toddynh0BR/Pokemon-Geek',
+        tags: [
+          'ReactJS',
+          'TypeScript',
+          'ApiRest'
+        ],
+      },
+      {
         id: 5,
         name: 'TodoApp',
         image: TodoApp,
@@ -218,6 +261,75 @@ export function Home() {
         ],
       },
       {
+        id: 12,
+        name: 'Blue Erp',
+        image: BlueErp,
+        description: `
+        BlueErp é um enorme site feito para a empresa <a href='https://www.linkedin.com/company/blue-innovation%C2%A0group/' target=''_blank>
+        BlueInnovation Group</a>, onde é apresentado o sistema de crm deles o blue erp e todas as suas funcionalidades. É um site extenso com mais de 40 páginas diferentes
+        e Únicas.
+        `,
+        year: 2024,
+        link: 'https://github.com/Toddynh0BR/BlueErp',
+        tags: [
+          'ReactJs',
+          'Styled-Components',
+          'JavaScript',
+          'Web'
+        ],
+      },
+      {
+        id: 13,
+        name: 'Blue Innovation',
+        image: BlueInnovation,
+        description: `
+        BlueInnovation é um site feito para a empresa <a href='https://www.linkedin.com/company/blue-innovation%C2%A0group/' target=''_blank>
+        BlueInnovation Group</a>, onde é apresentado todas as informações da empresa. Possui um design dinâmico e animado, com páginas completamente únicas.
+        `,
+        year: 2024,
+        link: 'https://github.com/Toddynh0BR/Blue-Innovation',
+        tags: [
+          'ReactJs',
+          'Styled-Components',
+          'JavaScript',
+          'Web'
+        ],
+      },
+      {
+        id: 14,
+        name: 'Blue Lite',
+        image: BlueLite,
+        description: `
+        BlueLite é um pequeno site feito para a empresa <a href='https://www.linkedin.com/company/blue-innovation%C2%A0group/' target=''_blank>
+        BlueInnovation Group</a>, onde é apresentado mais um de seus produtos, o BlueLite. É um site extremamente simples e curto, mas muito bem feito.
+        `,
+        year: 2024,
+        link: 'https://github.com/Toddynh0BR/Blue-Lite',
+        tags: [
+          'ReactJs',
+          'Styled-Components',
+          'JavaScript',
+          'Web'
+        ],
+      },
+      {
+        id: 14,
+        name: 'My Blue',
+        image: MyBlue,
+        description: `
+              MyBlue é um pequeno site feito para a empresa <a href='https://www.linkedin.com/company/blue-innovation%C2%A0group/' target=''_blank>
+        BlueInnovation Group</a>, é assim como o BlueLite um site de apresentação de produto simples e bem feito, este contanto com uma animação dinâmica e interativa.
+        `,
+        year: 2024,
+        link: 'https://github.com/Toddynh0BR/My-Blue',
+        tags: [
+          'ReactJs',
+          'Styled-Components',
+          'JavaScript',
+          'Web'
+        ],
+      },
+      {
         id: 7,
         name: 'Focus Timer',
         image: FocusTimer,
@@ -247,6 +359,40 @@ export function Home() {
           'JavaScript',
           'HTML',
           'CSS',
+          'Web'
+        ],
+      },
+      {
+        id: 17,
+        name: 'Coffe Delivery',
+        image: CoffeDelivery,
+        description: `
+       Coffe Delivery é um simples site de delivery de cafés feito para aprimorar minhas habilidades em front end, não tendo ainda uma versão mobile 
+       mas trabalhando bastante com localStorage
+        `,
+        year: 2024,
+        link: 'https://github.com/Toddynh0BR/Coffe-Delivery',
+        tags: [
+          'ReactJs',
+          'JavaScript',
+          'localStorage',
+          'Web'
+        ],
+      },
+      {
+        id: 18,
+        name: 'MyPortfólio (old)',
+        image: MyPortfolio,
+        description: `
+      MyPortfolio é meu antigo portfolio que atualmente não é mais utilizado porém esta disponivel para uso. Feito em react conta com diversas animações,
+      design responsivo e formulário completo pronto para ser conectado com qualquer back end.
+        `,
+        year: 2024,
+        link: 'https://github.com/Toddynh0BR/MyPortfolio',
+        tags: [
+          'ReactJs',
+          'JavaScript',
+          'form',
           'Web'
         ],
       },
