@@ -432,7 +432,7 @@ export function Home() {
     const depoiments = [
      {
       id: 3,
-      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQGLqThqnrT5nQ/profile-displayphoto-shrink_400_400/B4DZnzDtEBIEAg-/0/1760719459097?e=1769040000&v=beta&t=sCcViIctG_R0zLphjWmuATjlHfmHYL6_bt8yjXXnmdk',
+      photo: 'https://toddynh0br.netlify.app/camila.jpg',
       name: 'Camila Gomes',
       work: 'CEO na Cami design®',
       text: 'Trabalhar com ele foi uma experiência muito tranquila. Sempre demonstrou domínio técnico, atenção aos detalhes e preocupação em entregar algo que realmente fizesse sentido para o meu projeto.',
@@ -441,7 +441,7 @@ export function Home() {
      },
      {
       id: 1,
-      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQGXoUe3_Ia43Q/profile-displayphoto-scale_400_400/B4DZuVJHGlIkAg-/0/1767733754450?e=1769040000&v=beta&t=lLgpWKtC8GBFPw6mjt0goBStO5oG9Gi7x8YbzsX3_PI',
+      photo: 'https://toddynh0br.netlify.app/kevin.jpg',
       name: 'Kevin Emanuel',
       work: 'Full-Stack Developer',
       text: 'Programador gente boa e atencioso aos seus pedidos , sempre ao seu dispor quando necessita de ajuda, altamente habilidoso em diversas áreas.',
@@ -450,7 +450,7 @@ export function Home() {
      },
      {
       id: 2,
-      photo: 'https://media.licdn.com/dms/image/v2/D4D0BAQHWFqbFXZUWDQ/company-logo_200_200/company-logo_200_200/0/1731531992357?e=1769040000&v=beta&t=887WLYHouQWu09NBAoCwRMDHz4gqs1mqzdoSXhPYovU',
+      photo: 'https://toddynh0br.netlify.app/blue.jpg',
       name: 'Blue Innovation Group',
       work: 'ERP | CRM | Planning Enterprise',
       text: 'Profissional incrível me surpreendeu eu fiquei muito feliz com a entrega recomendaria e contrataria novamente',
@@ -459,7 +459,7 @@ export function Home() {
      },
      {
       id: 2,
-      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQE488mUOZWAJQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1701266722028?e=1769040000&v=beta&t=AkgtDYFRd1AzLamVaCAYRBKwfdxSXiu-Ll7vgEftWEs',
+      photo: 'https://toddynh0br.netlify.app/jaicke.jpg',
       name: 'Jaicke Santos',
       work: 'Senior Back-End Developer | Ruby on Rails | API REST | Microservices',
       text: 'Mesmo sem termos trabalhado diretamente juntos, sempre tive boas impressões do Matheus pelas interações e trocas de ideias na área de desenvolvimento.',
